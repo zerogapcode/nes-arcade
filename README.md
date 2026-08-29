@@ -53,8 +53,21 @@ calcula MD5 con `MD5Builder`, que ya viene en el core de Arduino.
 ## Añadir un cartucho
 
 1. Copiar el `.nes` a `roms/` y la carátula (224x320, JPEG baseline) a `covers/`.
-2. Regenerar `catalogo.json` con tamaños y MD5 actualizados.
-3. Push a `main` — GitHub Pages publica la rama automáticamente.
+2. Añadir la entrada a la lista `JUEGOS` de `build.py`.
+3. `python3 build.py` — regenera `catalogo.json` (tamaños y MD5) y
+   `miniaturas.json` (portadas a 76x108) de una vez.
+4. Push a `main` — GitHub Pages publica la rama automáticamente.
+
+### Hasta dónde escala
+
+El dispositivo parsea `catalogo.json` con ArduinoJson en unos 39 KB de heap, y
+el modelo de objetos ocupa cerca del doble que el texto. A 255 B por juego el
+techo práctico ronda los 60-70 cartuchos; más allá hay que partir el catálogo
+en un índice ligero y un archivo de detalle por juego.
+
+`miniaturas.json` crece a unos 4.7 KB por juego y se descarga entero. A 20
+juegos son 93 KB (medio minuto sobre TLS); conviene vigilarlo antes que el
+catálogo.
 
 ## miniaturas.json — portadas en miniatura
 

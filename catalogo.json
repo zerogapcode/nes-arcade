@@ -4,6 +4,15 @@
   "base": "https://zerogapcode.github.io/nes-arcade/",
   "juegos": [
     {
+      "id": "battletoadsdd",
+      "nombre": "Battletoads & Double Dragon",
+      "rom": "roms/BattletoadsDD.nes",
+      "bytes": 262160,
+      "md5": "35933222cf8658f7c6679fc7de630aaa",
+      "caratula": "covers/battletoadsdd.jpg",
+      "caratula_bytes": 38159
+    },
+    {
       "id": "contra",
       "nombre": "Contra",
       "rom": "roms/Contra.nes",
@@ -11,6 +20,42 @@
       "md5": "7bdad8b4a7a56a634c9649d20bd3011b",
       "caratula": "covers/contra.jpg",
       "caratula_bytes": 29626
+    },
+    {
+      "id": "doubledragon",
+      "nombre": "Double Dragon",
+      "rom": "roms/DoubleDragon.nes",
+      "bytes": 262160,
+      "md5": "79aa819580967ffb27a9698efbf493b9",
+      "caratula": "covers/doubledragon.jpg",
+      "caratula_bytes": 37443
+    },
+    {
+      "id": "doubledragon2",
+      "nombre": "Double Dragon II: The Revenge",
+      "rom": "roms/DoubleDragon2.nes",
+      "bytes": 262160,
+      "md5": "b94be0bf2e861bca19339920cd786f53",
+      "caratula": "covers/doubledragon2.jpg",
+      "caratula_bytes": 38936
+    },
+    {
+      "id": "doubledragon3",
+      "nombre": "Double Dragon III: The Sacred Stones",
+      "rom": "roms/DoubleDragon3.nes",
+      "bytes": 262160,
+      "md5": "a5484da6feadc9c8fdb2b1a8edf97ee2",
+      "caratula": "covers/doubledragon3.jpg",
+      "caratula_bytes": 38842
+    },
+    {
+      "id": "lowgman",
+      "nombre": "Low G Man",
+      "rom": "roms/LowGMan.nes",
+      "bytes": 262160,
+      "md5": "1dcc3f339cc030c9ebdd31744a9e7182",
+      "caratula": "covers/lowgman.jpg",
+      "caratula_bytes": 15764
     },
     {
       "id": "mariobros",
@@ -40,6 +85,15 @@
       "caratula_bytes": 35971
     },
     {
+      "id": "punchout",
+      "nombre": "Mike Tyson's Punch-Out!!",
+      "rom": "roms/PunchOut.nes",
+      "bytes": 262160,
+      "md5": "c119a5a9b0e2959ad5d11562f9f4ce55",
+      "caratula": "covers/punchout.jpg",
+      "caratula_bytes": 28142
+    },
+    {
       "id": "pacman",
       "nombre": "Pac-Man",
       "rom": "roms/PacMan.nes",
@@ -47,6 +101,33 @@
       "md5": "3ddca58c51dd38d59f9271d24e7105f9",
       "caratula": "covers/pacman.jpg",
       "caratula_bytes": 30006
+    },
+    {
+      "id": "platoon",
+      "nombre": "Platoon",
+      "rom": "roms/Platoon.nes",
+      "bytes": 262160,
+      "md5": "e2a79c624014fe49552a1b9ed8b7ed6c",
+      "caratula": "covers/platoon.jpg",
+      "caratula_bytes": 33482
+    },
+    {
+      "id": "robocop",
+      "nombre": "RoboCop",
+      "rom": "roms/RoboCop.nes",
+      "bytes": 262160,
+      "md5": "ad20426b20942679c12794f3f7c6a681",
+      "caratula": "covers/robocop.jpg",
+      "caratula_bytes": 30893
+    },
+    {
+      "id": "smb",
+      "nombre": "Super Mario Bros.",
+      "rom": "roms/SMB.nes",
+      "bytes": 49168,
+      "md5": "8d5b58ccffe1ebefcd3c4a28fdae3aab",
+      "caratula": "covers/smb.jpg",
+      "caratula_bytes": 30364
     },
     {
       "id": "smb2",
@@ -67,15 +148,6 @@
       "caratula_bytes": 33869
     },
     {
-      "id": "tetris",
-      "nombre": "Tetris",
-      "rom": "roms/Tetris.nes",
-      "bytes": 49168,
-      "md5": "1bcb1795a0feed766d6d0681196662fb",
-      "caratula": "covers/tetris.jpg",
-      "caratula_bytes": 25633
-    },
-    {
       "id": "tmnt",
       "nombre": "Teenage Mutant Ninja Turtles",
       "rom": "roms/TMNT.nes",
@@ -83,6 +155,24 @@
       "md5": "5e24ccd733d15e42d847274e7add0a76",
       "caratula": "covers/tmnt.jpg",
       "caratula_bytes": 37073
+    },
+    {
+      "id": "terminator2",
+      "nombre": "Terminator 2: Judgment Day",
+      "rom": "roms/Terminator2.nes",
+      "bytes": 262160,
+      "md5": "7e7edbc2801aefb931f4cefc638383a7",
+      "caratula": "covers/terminator2.jpg",
+      "caratula_bytes": 26470
+    },
+    {
+      "id": "tetris",
+      "nombre": "Tetris",
+      "rom": "roms/Tetris.nes",
+      "bytes": 49168,
+      "md5": "1bcb1795a0feed766d6d0681196662fb",
+      "caratula": "covers/tetris.jpg",
+      "caratula_bytes": 25633
     },
     {
       "id": "zelda",

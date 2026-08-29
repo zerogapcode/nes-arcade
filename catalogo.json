@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "actualizado": "2026-08-29",
+  "base": "https://zerogapcode.github.io/nes-arcade/",
+  "juegos": [
+    {
+      "id": "contra",
+      "nombre": "Contra",
+      "rom": "roms/Contra.nes",
+      "bytes": 131088,
+      "md5": "7bdad8b4a7a56a634c9649d20bd3011b",
+      "caratula": "covers/contra.jpg",
+      "caratula_bytes": 29626
+    },
+    {
+      "id": "mariobros",
+      "nombre": "Mario Bros.",
+      "rom": "roms/MarioBros.nes",
+      "bytes": 24592,
+      "md5": "d85e4dbfb52687c83915ac3e4cc08bbb",
+      "caratula": "covers/mariobros.jpg",
+      "caratula_bytes": 25853
+    },
+    {
+      "id": "megaman2",
+      "nombre": "Mega Man 2",
+      "rom": "roms/MegaMan2.nes",
+      "bytes": 262160,
+      "md5": "8e4bc5b03ffbd4ef91400e92e50dd294",
+      "caratula": "covers/megaman2.jpg",
+      "caratula_bytes": 33026
+    },
+    {
+      "id": "smb2",
+      "nombre": "Super Mario Bros. 2",
+      "rom": "roms/SMB2.nes",
+      "bytes": 262160,
+      "md5": "25b7e8471ae58316593e58205fa16803",
+      "caratula": "covers/smb2.jpg",
+      "caratula_bytes": 34639
+    },
+    {
+      "id": "smb3",
+      "nombre": "Super Mario Bros. 3",
+      "rom": "roms/SMB3.nes",
+      "bytes": 393232,
+      "md5": "86d1982fea7342c0af9679ddf3869d8d",
+      "caratula": "covers/smb3.jpg",
+      "caratula_bytes": 33869
+    },
+    {
+      "id": "tmnt",
+      "nombre": "Teenage Mutant Ninja Turtles",
+      "rom": "roms/TMNT.nes",
+      "bytes": 262160,
+      "md5": "5e24ccd733d15e42d847274e7add0a76",
+      "caratula": "covers/tmnt.jpg",
+      "caratula_bytes": 37073
+    }
+  ]
+}

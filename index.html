@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NES Arcade · Catálogo de cartuchos</title>
+<meta name="description" content="Catálogo de cartuchos NES que el portal cautivo NES Arcade descarga sobre su propia red.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<style>
+  :root {
+    --bg: #14110f;
+    --header: #17130f;
+    --surface: #1a1614;
+    --surface-2: #2a2320;
+    --line: #38302b;
+    --text: #f4efea;
+    --muted: #a29790;
+    --dim: #7d736d;
+    --red: #e52521;
+    --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --pixel: 'Press Start 2P', "Courier New", monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.016) 0px, rgba(255,255,255,0.016) 1px, transparent 1px, transparent 3px);
+    color: var(--text);
+    font-family: var(--ui);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--red); }
+  a:hover { color: #ff4a45; }
+
+  .topbar { padding: 34px 24px 22px; border-bottom: 1px solid var(--surface-2); background: var(--header); }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  .wordmark { font-family: var(--pixel); font-size: 16px; line-height: 1.3; margin: 0 0 10px; }
+  .tagline { font-size: 13px; color: var(--muted); margin: 0; }
+
+  main { padding: 30px 24px 60px; }
+
+  .lead { font-size: 14.5px; line-height: 1.65; color: var(--muted); max-width: 62ch; margin: 0 0 28px; }
+  .lead strong { color: var(--text); font-weight: 600; }
+
+  .endpoint { margin: 0 0 34px; padding: 16px 18px; border: 1px solid var(--surface-2); border-radius: 6px; background: var(--surface); }
+  .endpoint-label { font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+  .endpoint code { display: block; font-size: 13px; color: #e4dbd4; word-break: break-all; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin: 0 0 16px; }
+
+  #grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 18px; margin: 0; padding: 0; list-style: none; }
+  @media (min-width: 620px)  { #grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 880px)  { #grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (min-width: 1080px) { #grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+  .card img { display: block; max-width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--line); background: #0c0a09; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+  .card h2 { margin: 11px 0 0; font-size: 13px; font-weight: 600; color: #e4dbd4; line-height: 1.3; }
+  .card .size { margin-top: 3px; font-size: 11px; color: var(--dim); }
+  .card .dl { margin-top: 7px; font-size: 11.5px; }
+
+  .totals { margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--surface-2); font-size: 12.5px; color: var(--dim); line-height: 1.7; }
+
+  footer { padding: 0 24px 50px; }
+  .note { font-size: 12px; color: var(--dim); line-height: 1.7; max-width: 62ch; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <h1 class="wordmark">NES ARCADE</h1>
+    <p class="tagline">Catálogo de cartuchos</p>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <p class="lead">
+      Este es el catálogo del que se surte el portal cautivo <strong>NES Arcade</strong>: un
+      Wemos D1 mini que levanta su propia red WiFi y sirve un emulador NES a quien se conecte.
+      El aparato lee <code>catalogo.json</code>, compara con lo que ya tiene instalado y descarga
+      lo que le falte directo a su memoria interna.
+    </p>
+
+    <div class="endpoint">
+      <div class="endpoint-label">Índice para el dispositivo</div>
+      <code>https://zerogapcode.github.io/nes-arcade/catalogo.json</code>
+    </div>
+
+    <p class="section-label">Cartuchos disponibles</p>
+    <ul id="grid"></ul>
+    <div class="totals" id="totals"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="note">
+      Las carátulas vienen ya escaladas a 224×320 px: el D1 mini no tiene capacidad para
+      redimensionar imágenes, así que las guarda tal cual las recibe. Cada entrada del índice
+      lleva su tamaño en bytes y su MD5, para que el dispositivo pueda comprobar que tiene
+      sitio antes de bajar y que el archivo llegó completo después.
+    </p>
+  </div>
+</footer>
+
+<script>
+function kb(bytes) { return Math.round(bytes / 1024) + ' KB'; }
+
+fetch('catalogo.json')
+  .then(function (r) { return r.json(); })
+  .then(function (cat) {
+    var grid = document.getElementById('grid');
+    cat.juegos.forEach(function (g) {
+      var li = document.createElement('li');
+      li.className = 'card';
+      li.innerHTML =
+        '<img src="' + g.caratula + '" width="224" height="320" alt="">' +
+        '<h2></h2>' +
+        '<div class="size"></div>' +
+        '<div class="dl"><a></a></div>';
+      li.querySelector('h2').textContent = g.nombre;
+      li.querySelector('.size').textContent = kb(g.bytes);
+      var a = li.querySelector('.dl a');
+      a.href = g.rom;
+      a.textContent = 'Descargar .nes';
+      grid.appendChild(li);
+    });
+
+    var roms = cat.juegos.reduce(function (s, g) { return s + g.bytes; }, 0);
+    var arts = cat.juegos.reduce(function (s, g) { return s + g.caratula_bytes; }, 0);
+    document.getElementById('totals').textContent =
+      cat.juegos.length + ' cartuchos · ' + kb(roms) + ' en ROMs · ' + kb(arts) +
+      ' en carátulas · índice actualizado el ' + cat.actualizado;
+  })
+  .catch(function () {
+    document.getElementById('totals').textContent = 'No se pudo leer catalogo.json.';
+  });
+</script>
+
+</body>
+</html>

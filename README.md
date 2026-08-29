@@ -56,6 +56,26 @@ calcula MD5 con `MD5Builder`, que ya viene en el core de Arduino.
 2. Regenerar `catalogo.json` con tamaños y MD5 actualizados.
 3. Push a `main` — GitHub Pages publica la rama automáticamente.
 
+## miniaturas.json — portadas en miniatura
+
+Un único archivo con la portada de cada juego a 76x108, en JPEG y codificada en
+base64, indexada por `id`:
+
+```json
+{"contra":"/9j/4AAQSkZJRg...","zelda":"..."}
+```
+
+Existe por una razón concreta: el teléfono que navega el catálogo está conectado
+al punto de acceso del D1 mini, **que no enruta a internet**. Las miniaturas
+tienen que estar en el dispositivo, y bajar diez portadas sueltas costaría dos
+minutos — cada handshake TLS en un ESP8266 son unos diez segundos.
+
+El dispositivo lo descarga junto al catálogo y lo sirve **tal cual, sin
+parsearlo**: quien lee el JSON es el navegador del teléfono, que sí tiene
+memoria de sobra. Un documento de 47 KB reventaría el heap de ArduinoJson.
+
+Se regenera con las portadas de `covers/` cada vez que cambia el catálogo.
+
 ## version.json — manifiesto de actualización
 
 El dispositivo consulta este archivo automáticamente al conectarse a internet

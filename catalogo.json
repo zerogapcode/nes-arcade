@@ -31,6 +31,24 @@
       "caratula_bytes": 33026
     },
     {
+      "id": "metalgear",
+      "nombre": "Metal Gear",
+      "rom": "roms/MetalGear.nes",
+      "bytes": 131088,
+      "md5": "347f6b957cff910cd058d7bfd3cee588",
+      "caratula": "covers/metalgear.jpg",
+      "caratula_bytes": 35971
+    },
+    {
+      "id": "pacman",
+      "nombre": "Pac-Man",
+      "rom": "roms/PacMan.nes",
+      "bytes": 24592,
+      "md5": "3ddca58c51dd38d59f9271d24e7105f9",
+      "caratula": "covers/pacman.jpg",
+      "caratula_bytes": 30006
+    },
+    {
       "id": "smb2",
       "nombre": "Super Mario Bros. 2",
       "rom": "roms/SMB2.nes",
@@ -49,6 +67,15 @@
       "caratula_bytes": 33869
     },
     {
+      "id": "tetris",
+      "nombre": "Tetris",
+      "rom": "roms/Tetris.nes",
+      "bytes": 49168,
+      "md5": "1bcb1795a0feed766d6d0681196662fb",
+      "caratula": "covers/tetris.jpg",
+      "caratula_bytes": 25633
+    },
+    {
       "id": "tmnt",
       "nombre": "Teenage Mutant Ninja Turtles",
       "rom": "roms/TMNT.nes",
@@ -56,6 +83,15 @@
       "md5": "5e24ccd733d15e42d847274e7add0a76",
       "caratula": "covers/tmnt.jpg",
       "caratula_bytes": 37073
+    },
+    {
+      "id": "zelda",
+      "nombre": "The Legend of Zelda",
+      "rom": "roms/Zelda.nes",
+      "bytes": 131088,
+      "md5": "f4095791987351be68674a9355b266bc",
+      "caratula": "covers/zelda.jpg",
+      "caratula_bytes": 21126
     }
   ]
 }

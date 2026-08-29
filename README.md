@@ -55,3 +55,25 @@ calcula MD5 con `MD5Builder`, que ya viene en el core de Arduino.
 1. Copiar el `.nes` a `roms/` y la carátula (224x320, JPEG baseline) a `covers/`.
 2. Regenerar `catalogo.json` con tamaños y MD5 actualizados.
 3. Push a `main` — GitHub Pages publica la rama automáticamente.
+
+## version.json — manifiesto de actualización
+
+El dispositivo consulta este archivo automáticamente al conectarse a internet
+y luego cada seis horas. Es lo único cuya URL viene fija en el firmware.
+
+```json
+{
+  "version": 1,
+  "catalogo": "https://zerogapcode.github.io/nes-arcade/catalogo.json",
+  "notas": "Catálogo inicial con 10 cartuchos"
+}
+```
+
+Si `version` es mayor que la que el dispositivo tiene aplicada, el portal avisa
+y muestra `notas`. **Nunca se aplica solo**: el usuario decide desde Ajustes.
+Al aplicar, el dispositivo guarda la nueva `version` y adopta `catalogo`.
+
+Por eso, si este repositorio desaparece, basta con que este manifiesto siga en
+pie apuntando `catalogo` a otro sitio: los aparatos ya desplegados encuentran
+los juegos en su nueva casa sin tocarlos por USB. Subir `version` es lo que
+dispara el aviso.
